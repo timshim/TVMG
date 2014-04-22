@@ -8,39 +8,70 @@
 
 #import "VMGAppDelegate.h"
 
+CGFloat kCollectionFeedWidthPortrait = 306;
+CGFloat kCollectionFeedWidthLandscape = 306;
+BOOL hasDonated1 = NO;
+BOOL hasDonated5 = NO;
+BOOL hasDonated10 = NO;
+BOOL hasDonated20 = NO;
+BOOL hasDonated50 = NO;
+BOOL hasDonated100 = NO;
+
 @implementation VMGAppDelegate
+
++ (VMGAppDelegate *)instance
+{
+    return (VMGAppDelegate *)[[UIApplication sharedApplication] delegate];
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    [Parse setApplicationId:@"KYG1GOdWE1KLxQpMcYLQy8txipOgo1HYihGMpzaQ"
+                  clientKey:@"jN0ZxLcuZruxzXX7yNB5ZJ6aEAHk293IDK5nu46M"];
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    [PFPurchase addObserverForProduct:@"com.timshim.TVMG.donate1" block:^(SKPaymentTransaction *transaction) {
+        hasDonated1 = YES;
+    }];
+    [PFPurchase addObserverForProduct:@"com.timshim.TVMG.donate5" block:^(SKPaymentTransaction *transaction) {
+        hasDonated5 = YES;
+    }];
+    [PFPurchase addObserverForProduct:@"com.timshim.TVMG.donate10" block:^(SKPaymentTransaction *transaction) {
+        hasDonated10 = YES;
+    }];
+    [PFPurchase addObserverForProduct:@"com.timshim.TVMG.donate20" block:^(SKPaymentTransaction *transaction) {
+        hasDonated20 = YES;
+    }];
+    [PFPurchase addObserverForProduct:@"com.timshim.TVMG.donate50" block:^(SKPaymentTransaction *transaction) {
+        hasDonated50 = YES;
+    }];
+    [PFPurchase addObserverForProduct:@"com.timshim.TVMG.donate100" block:^(SKPaymentTransaction *transaction) {
+        hasDonated100 = YES;
+    }];
+    
+    self.accountStore = [[ACAccountStore alloc] init];
+    self.twitterAdapter = [[TwitterAdapter alloc] init];
+    
+    [[UITabBar appearance] setTintColor:[UIColor colorWithRed:220/255.0f green:220/255.0f blue:220/255.0f alpha:1]];
+    
     return YES;
 }
+
+- (void)accessTwitterAccount
+{
+    [self.twitterAdapter accessTwitterAccountWithAccountStore:self.accountStore];
+}
+
+- (void)showError:(NSString*)errorMessage
+{    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                        message:errorMessage
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
+    
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        [alertView show];
+    });
+}
 							
-- (void)applicationWillResignActive:(UIApplication *)application
-{
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-}
-
-- (void)applicationDidEnterBackground:(UIApplication *)application
-{
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
-
 @end
