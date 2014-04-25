@@ -7,14 +7,18 @@
 //
 
 #import "VMG_Guides_ViewController.h"
+#import "VMG_LocationDetails_ViewController.h"
 #import "TLSpringFlowLayout.h"
 #import "VMG_Guides_UICollectionViewCell.h"
 #import "VMG_GuideDetails_ViewController.h"
+#import "VMG_DiscourseDetail_ViewController.h"
 
 @implementation VMG_Guides_ViewController
 {
     NSInteger selectedIndex;
-    VMG_GuideDetails_ViewController *vc;
+    VMG_GuideDetails_ViewController *vc_guidedetails;
+    VMG_LocationDetails_ViewController *vc_locationdetails;
+    VMG_DiscourseDetail_ViewController *vc_discoursedetails;
     VMG_Guides_UICollectionViewCell *_sizingCell;
 }
 
@@ -32,11 +36,6 @@ static NSString * CellIdentifier = @"cellIdentifier";
     self.navigationController.view.backgroundColor = [UIColor clearColor];
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    
-}
-
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
     return UIStatusBarStyleLightContent;
@@ -52,7 +51,14 @@ static NSString * CellIdentifier = @"cellIdentifier";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     selectedIndex = indexPath.item;
-    vc.index = selectedIndex;
+    
+    if (indexPath.item == 4) {
+        [self performSegueWithIdentifier:@"locationDetails" sender:self];
+    } else if (indexPath.item == 6) {
+        [self performSegueWithIdentifier:@"discourseDetails" sender:self];
+    } else {
+        [self performSegueWithIdentifier:@"guideDetails" sender:self];
+    }
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -114,9 +120,13 @@ static NSString * CellIdentifier = @"cellIdentifier";
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"guideDetails"]) {
-        vc.index = selectedIndex;
-        vc = [segue destinationViewController];
+    if ([[segue identifier] isEqualToString:@"locationDetails"]) {
+        vc_locationdetails = [segue destinationViewController];
+    } else if ([[segue identifier] isEqualToString:@"discourseDetails"]) {
+        vc_discoursedetails = [segue destinationViewController];
+    } else if ([[segue identifier] isEqualToString:@"guideDetails"]) {
+        vc_guidedetails = [segue destinationViewController];
+        vc_guidedetails.index = selectedIndex;
     }
 }
 

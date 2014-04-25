@@ -219,8 +219,6 @@
             break;
             
         case 4:
-            self.guideDetailsTitle.text = @"Locations";
-            self.coreTextView.text = @"Where are Vipassana courses held?";
             break;
             
         case 5:
@@ -261,8 +259,6 @@
             break;
             
         case 6:
-            self.guideDetailsTitle.text = @"Discourse";
-            self.coreTextView.text = @"Daily evening discourse videos.";
             break;
             
         case 7:
@@ -273,11 +269,11 @@
             
             "<subtitle>How many hours a day will I be meditating?</subtitle>\n\n"
             
-            "The day begins at 4:00 a.m. with a wakeup bell and continues until 9:00 p.m. There are about ten hours of meditation throughout the day, interspersed with regular breaks and rest periods. Every evening at 7:00 p.m. there is a videotaped lecture by the Teacher, S.N. Goenka, which provides a context for meditators to understand their experience of the day. This schedule has proved workable and beneficial for hundreds of thousands of people for decades.\n\n"
+            "The day begins at 4:00 am with a wakeup bell and continues until 9:00 pm. There are about ten hours of meditation throughout the day, interspersed with regular breaks and rest periods. Every evening at 7:00 pm there is a videotaped lecture by the Teacher, SN Goenka, which provides a context for meditators to understand their experience of the day. This schedule has proved workable and beneficial for hundreds of thousands of people for decades.\n\n"
             
             "<subtitle>What language is used in the course?</subtitle>\n\n"
             
-            "The teaching is given through recordings of S.N. Goenka, speaking in English or Hindi, together with a translation into a local language. Tape translations exist in most of the major languages of the world, including English. If the teachers conducting a course do not speak the local language fluently, interpreters will be there to help. Language is usually no barrier for someone who wants to join a course.\n\n"
+            "The teaching is given through recordings of SN Goenka, speaking in English or Hindi, together with a translation into a local language. Tape translations exist in most of the major languages of the world, including English. If the teachers conducting a course do not speak the local language fluently, interpreters will be there to help. Language is usually no barrier for someone who wants to join a course.\n\n"
             
             "<subtitle>How much does the course cost?</subtitle>\n\n"
             
@@ -337,7 +333,8 @@
             
             "<subtitle>How about the tenth day, when talking is allowed and serious meditation stops? Can I leave then?</subtitle>\n\n"
             
-            "The tenth day is a very important transition back to ordinary life. No one is permitted to leave on that day.\n\n\n";
+            "The tenth day is a very important transition back to ordinary life. No one is permitted to leave on that day.\n\n\n"
+            ;
             break;
     }
 }
