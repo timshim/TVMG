@@ -7,18 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "JWGCircleCounter.h"
-#import "MZTimerLabel.h"
+#import <AVFoundation/AVFoundation.h>
+#import <MediaPlayer/MediaPlayer.h>
+#import "ZGCountDownTimer.h"
 
-@interface VMG_Meditate_ViewController : UIViewController <JWGCircleCounterDelegate, MZTimerLabelDelegate> {
-    MZTimerLabel *mainTimer;
-}
+@interface VMG_Meditate_ViewController : UIViewController <AVAudioPlayerDelegate, AVAudioSessionDelegate, ZGCountDownTimerDelegate>
 
-@property (strong, nonatomic) IBOutlet JWGCircleCounter *circleCounter;
-
+@property(nonatomic, strong) ZGCountDownTimer *countDownTimer;
 @property (weak, nonatomic) IBOutlet UILabel *timerHoursMinutes;
-
 @property (weak, nonatomic) IBOutlet UIButton *timerSettingsButton;
+@property (nonatomic, retain) MPMoviePlayerController *guidedMeditationAudio;
+@property (nonatomic, retain) AVQueuePlayer *queueAudio;
+@property (nonatomic, strong) NSURL *guidedMeditation_intro_url;
+@property (nonatomic, strong) NSURL *guidedMeditation_end_url;
+@property(nonatomic, strong) UILocalNotification *localNotification;
 
 - (IBAction)resetCountDown:(id)sender;
 

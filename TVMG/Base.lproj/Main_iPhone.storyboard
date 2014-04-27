@@ -162,16 +162,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A6Y-Zu-uZJ" customClass="JWGCircleCounter">
-                                <rect key="frame" x="25" y="103" width="270" height="270"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="270" id="0Jw-fy-zuc"/>
-                                    <constraint firstAttribute="height" constant="270" id="yPI-45-wKj"/>
-                                </constraints>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K5G-Un-7ew">
                                 <rect key="frame" x="83" y="409" width="154" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -207,12 +197,8 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qFi-hw-NDj">
-                                <rect key="frame" x="43" y="209" width="235" height="58"/>
+                                <rect key="frame" x="97" y="208" width="126" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="235" id="DJX-Bn-G1K"/>
-                                    <constraint firstAttribute="height" constant="58" id="Da3-xC-uj9"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="50"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -220,18 +206,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="A6Y-Zu-uZJ" secondAttribute="centerX" id="4A1-Yj-F1y"/>
+                            <constraint firstAttribute="centerY" secondItem="qFi-hw-NDj" secondAttribute="centerY" multiplier="1.2" id="2eJ-zG-p3d"/>
                             <constraint firstItem="5Ep-rJ-oCg" firstAttribute="top" secondItem="gMD-aP-Fq6" secondAttribute="top" constant="30" id="4AO-w9-hFj"/>
                             <constraint firstItem="M3X-4R-gkR" firstAttribute="leading" secondItem="gMD-aP-Fq6" secondAttribute="leading" constant="14" id="7Hk-eP-DuG"/>
                             <constraint firstItem="M3X-4R-gkR" firstAttribute="top" secondItem="gMD-aP-Fq6" secondAttribute="top" constant="30" id="7eg-6z-wLW"/>
                             <constraint firstAttribute="bottom" secondItem="xLQ-M2-Mck" secondAttribute="bottom" id="Cje-cn-fxk"/>
-                            <constraint firstAttribute="centerY" secondItem="A6Y-Zu-uZJ" secondAttribute="centerY" multiplier="1.2" constant="-1.5999999999999659" id="DFi-On-IhF"/>
                             <constraint firstAttribute="trailing" secondItem="xLQ-M2-Mck" secondAttribute="trailing" id="H7x-QP-rO3"/>
+                            <constraint firstAttribute="centerX" secondItem="qFi-hw-NDj" secondAttribute="centerX" id="JvP-rn-MaV"/>
                             <constraint firstItem="xLQ-M2-Mck" firstAttribute="leading" secondItem="gMD-aP-Fq6" secondAttribute="leading" id="KZE-Si-CQS"/>
+                            <constraint firstAttribute="bottom" secondItem="K5G-Un-7ew" secondAttribute="bottom" constant="119" id="NAH-eW-Mnv"/>
                             <constraint firstAttribute="centerX" secondItem="K5G-Un-7ew" secondAttribute="centerX" id="VA4-f6-XMs"/>
-                            <constraint firstItem="qFi-hw-NDj" firstAttribute="centerX" secondItem="A6Y-Zu-uZJ" secondAttribute="centerX" constant="0.5" id="Xfa-op-oXa"/>
-                            <constraint firstItem="K5G-Un-7ew" firstAttribute="top" secondItem="A6Y-Zu-uZJ" secondAttribute="bottom" constant="36" id="Yu6-0V-0q3"/>
-                            <constraint firstItem="qFi-hw-NDj" firstAttribute="centerY" secondItem="A6Y-Zu-uZJ" secondAttribute="centerY" id="fDr-NV-zcG"/>
                             <constraint firstItem="xLQ-M2-Mck" firstAttribute="top" secondItem="gMD-aP-Fq6" secondAttribute="top" id="mQO-Dv-2X6"/>
                             <constraint firstAttribute="trailing" secondItem="5Ep-rJ-oCg" secondAttribute="trailing" constant="14" id="xvc-bT-np5"/>
                         </constraints>
@@ -241,7 +225,6 @@
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="rK1-Hl-tmT"/>
                     <connections>
-                        <outlet property="circleCounter" destination="A6Y-Zu-uZJ" id="aZW-dl-Fb3"/>
                         <outlet property="startButton" destination="K5G-Un-7ew" id="Iya-FN-yB9"/>
                         <outlet property="timerHoursMinutes" destination="qFi-hw-NDj" id="DbN-k7-jbN"/>
                         <outlet property="timerSettingsButton" destination="5Ep-rJ-oCg" id="S7t-OD-GgV"/>

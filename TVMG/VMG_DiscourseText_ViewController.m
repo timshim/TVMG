@@ -167,26 +167,29 @@
     self.playerControl.borderWidth = 1.0f;
 }
 
-- (BOOL)canBecomeFirstResponder {
+- (BOOL)canBecomeFirstResponder
+{
     return YES;
 }
 
-- (void)viewDidAppear:(BOOL)animated {
+- (void)viewDidAppear:(BOOL)animated
+{
     [super viewDidAppear:animated];
     
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     [self becomeFirstResponder];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
+- (void)viewWillDisappear:(BOOL)animated
+{
     [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
     [self resignFirstResponder];
     
     [super viewWillDisappear:animated];
 }
 
-- (void)remoteControlReceivedWithEvent:(UIEvent *)receivedEvent {
-    
+- (void)remoteControlReceivedWithEvent:(UIEvent *)receivedEvent
+{
     if (receivedEvent.type == UIEventTypeRemoteControl) {
         switch (receivedEvent.subtype) {
             case UIEventSubtypeRemoteControlPlay:
@@ -248,11 +251,9 @@
         [self.MPaudioPlayer stop];
         self.MPaudioPlayer.currentPlaybackTime = 0.0;
         self.playerControl.playing = NO;
-        NSLog(@"Stopped");
     } else {
         [self.MPaudioPlayer play];
         self.playerControl.playing = YES;
-        NSLog(@"Started");
     }
 }
 

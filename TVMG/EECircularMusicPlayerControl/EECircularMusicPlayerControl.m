@@ -351,7 +351,7 @@
     [self.circularMusicPlayerLayer.borderLayer setNeedsDisplay];
 }
 
-- (double)progressTrackRatio
+- (CGFloat)progressTrackRatio
 {
     return self.circularMusicPlayerLayer.progressTrackRatio;
 }

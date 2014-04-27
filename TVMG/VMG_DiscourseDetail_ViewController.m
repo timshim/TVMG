@@ -13,7 +13,6 @@
 {
     NSArray *dayTitles;
     NSArray *daySubtitles;
-    NSInteger selectedDiscourseIndex;
     VMG_DiscourseText_ViewController *vc_discourseText;
 }
 @end
@@ -74,7 +73,6 @@
 {
     if ([[segue identifier] isEqualToString:@"discourseText"]) {
         vc_discourseText = [segue destinationViewController];
-//        vc_discourseText.discourseSelected = [dayTitles indexOfObject:sender];
     }
 }
 
